@@ -1,86 +1,127 @@
-# Plataforma Integrada para Mapeamento da Demanda por Educação Profissional Técnica de Nível Médio
+# 🗺️ Plataforma de Mapeamento da Demanda por EPTNM
 
-**Proponente:** Universidade Federal de Uberlândia (UFU) \
-**Edital de Referência:** Edital Nº 5/2025 - MEC/SETEC \
-**Status do Projeto:** Em desenvolvimento (Fase de Prototipagem)
+**Proponente:** Universidade Federal de Uberlândia (UFU)  
+**Edital de Referência:** [Edital Nº 5/2025 - MEC/SETEC](https://www.in.gov.br/en/web/dou/-/edital-n-5/2025-568349328)
 
-## 1. Sobre o Projeto
+---
 
-Este repositório apresenta o protótipo da Plataforma Integrada para o Mapeamento da Demanda por Educação Profissional Técnica de Nível Médio (EPTNM). O projeto foi desenvolvido em resposta à Chamada Pública do Ministério da Educação (MEC), por intermédio da Secretaria de Educação Profissional e Tecnológica (Setec), como uma ferramenta de apoio à implementação do Programa Juros por Educação.
+## 📍 1. Sobre o Projeto
 
-O objetivo da plataforma é fornecer um instrumento de código aberto, robusto e replicável, capaz de auxiliar gestores públicos e instituições de ensino a planejar a oferta de cursos técnicos. A análise busca alinhar a formação profissional às necessidades reais do mercado de trabalho e aos arranjos produtivos locais e regionais, a partir da consolidação e integração de dados de fontes governamentais abertas.
+Este repositório apresenta o protótipo funcional da **Plataforma Integrada para Mapeamento da Demanda por Educação Profissional Técnica de Nível Médio (EPTNM)**. O projeto foi desenvolvido como uma ferramenta de apoio à implementação do **Programa Juros por Educação**, em resposta à Chamada Pública do Ministério da Educação (MEC).
 
-## 2. Objetivos da Plataforma
+O objetivo é fornecer um instrumento de código aberto, robusto e replicável para auxiliar gestores públicos e instituições de ensino a planejar a oferta de cursos técnicos. A análise busca alinhar a formação profissional às necessidades reais do mercado de trabalho, a partir da integração de dados de fontes governamentais abertas.
 
-#### Objetivo Geral
+O protótipo atual oferece uma interface web interativa para explorar os dados de **Minas Gerais**, permitindo análises dinâmicas através de filtros e visualizações geoespaciais.
+
+---
+
+## 🎯 2. Objetivos da Plataforma
+
+### Objetivo Geral
 Desenvolver uma plataforma digital aberta e interoperável para mapear a demanda por cursos técnicos de nível médio, através do cruzamento de dados sobre mercado de trabalho, perfil populacional e oferta educacional.
 
-#### Objetivos Específicos
-1. Identificar ocupações em crescimento e setores produtivos com maior demanda por qualificação técnica.
-2. Mapear características sociodemográficas, educacionais e de vulnerabilidade social da população jovem.
-3. Diagnosticar a rede existente de instituições que oferecem EPTNM e a distribuição territorial dos cursos.
-4. Projetar tendências futuras do mercado de trabalho para subsidiar o planejamento estratégico da expansão da EPTNM.
-5. Atender integralmente às oito dimensões de dados exigidas pelo Edital nº 5/2025.
+### Objetivos Específicos
+- **Identificar** tendências de demanda por mão de obra a nível municipal.
+- **Mapear** o perfil do público-alvo potencial para a EPTNM em diferentes faixas etárias.
+- **Diagnosticar** a oferta atual de matrículas na rede de ensino técnico.
+- **Prover** indicadores sintéticos que revelem lacunas entre oferta e demanda, gerando insights para investimentos.
+- **Atender** integralmente às oito dimensões de dados exigidas pelo Edital nº 5/2025.
 
-## 3. Conformidade com o Edital Nº 5/2025
+---
 
-A plataforma foi desenvolvida para atender aos critérios de avaliação e às dimensões de dados estipuladas no edital.
+## 🔧 3. Metodologia e Arquitetura
 
-#### Critérios de Avaliação (Item 5.4)
+A plataforma foi construída com base em um pipeline de dados modular em Python, utilizando bibliotecas de código aberto para garantir a performance e a replicabilidade.
 
-| Critério | Nível de Atendimento | Justificativa |
-| :--- | :--- | :--- |
-| **Clareza** | Nível 3 (Completo/Detalhado) | A documentação, a arquitetura e a interface da plataforma são projetadas para serem claras, intuitivas e compreensíveis. |
-| **Justificativa** | Nível 3 (Completo/Detalhado) | Todas as fontes de dados, tecnologias e modelos estatísticos são justificados com base em sua confiabilidade, relevância e adequação ao problema. |
-| **Detalhamento** | Nível 3 (Completo/Detalhado) | O código-fonte será comentado, e a metodologia de ETL (Extração, Transformação e Carga) será documentada para garantir a replicabilidade. |
-| **Fonte de Dados** | Nível 3 (Completo/Detalhado) | Utiliza exclusivamente fontes de dados públicas e reconhecidas, como IBGE, MTE (CAGED/RAIS), MEC (SISTEC) e MDS (CadÚnico). |
-| **Impacto Potencial** | Nível 3 (Completo/Detalhado) | A ferramenta gera evidências para a formulação de políticas públicas, otimizando a alocação de recursos e aumentando a empregabilidade dos egressos. |
+- **Linguagem Principal:** `Python 3.10`
 
-#### Dimensões de Dados Contempladas (Item 5.6)
+- **Análise e Processamento de Dados (ETL):**
+  - **Pandas:** Para manipulação e limpeza dos dados tabulares.
+  - **GeoPandas:** Para processamento dos dados geoespaciais dos municípios.
+  - *A metodologia incluiu a superação de desafios como a leitura de arquivos Excel com formatação complexa (cabeçalhos de múltiplos níveis do CAGED) e a normalização de nomes de municípios entre diferentes fontes de dados.*
 
-A plataforma integra e analisa dados de todas as dimensões solicitadas, organizadas nos seguintes módulos:
+- **Visualização e Dashboard:**
+  - **Streamlit:** Para a construção rápida e eficiente da aplicação web interativa.
+  - **Plotly Express:** Para a criação de visualizações de dados ricas, como o mapa coroplético e os gráficos de barras interativos.
 
-| Dimensão | Fontes de Dados Principais | Módulo da Plataforma |
-| :--- | :--- | :--- |
-| **Dados Econômicos** | Novo CAGED, RAIS, SINE | Módulo 1 (Vagas e Habilidades) e 4 (Projeção) |
-| **Dados Demográficos** | IBGE (Censo, PNAD Contínua) | Módulo 2 (Análise Sociodemográfica) |
-| **Dados de Acompanhamento de Egressos** | RAIS, SISTEC, Plataforma Nilo Peçanha | Módulo 3 (Oferta Educacional) |
-| **Dados Sociais** | CadÚnico, IBGE, Atlas da Vulnerabilidade (IPEA) | Módulo 2 (Análise Sociodemográfica) |
-| **Dados de Percepção/Opinião** | CNI (Mapa do Trabalho Industrial) | Módulo 4 (Projeção de Mercado) |
-| **Dados de Estrutura da Rede** | Censo Escolar, Plataforma Nilo Peçanha | Módulo 3 (Oferta Educacional) |
-| **Dimensão Temporal** | Séries históricas de todas as fontes | Todos os Módulos |
-| **Dimensão Geográfica** | Dados com recorte municipal, estadual e regional | Todos os Módulos |
+- **Indicadores-Chave Desenvolvidos:**
+  - **🎯 Índice de Oportunidade:** `(Saldo de Vagas / Total Matrículas EPT) * 100`. Cruza a demanda do mercado com a oferta educacional. Um índice alto sugere uma forte oportunidade para novos cursos.
+  - **📊 Índice de Demanda por Público:** `(Saldo de Vagas / População na Faixa Etária) * 1000`. Mede a pressão do mercado de trabalho sobre a população local. Responde à pergunta: *"Para cada 1.000 pessoas nesta faixa etária, quantas vagas líquidas foram criadas?"*.
 
-## 4. Arquitetura e Metodologia
+---
 
-A plataforma é construída sobre uma arquitetura de microsserviços, utilizando tecnologias de código aberto para garantir escalabilidade e manutenibilidade.
+## 📂 4. Estrutura do Repositório
 
-- **Linguagem Principal:** Python
-- **Processamento de Dados (ETL):** Scripts de coleta via APIs públicas, downloads automáticos e web scraping supervisionado.
-- **Banco de Dados:** PostgreSQL com a extensão PostGIS para suporte a dados geoespaciais.
-- **Visualização e Dashboards:** Dash e Plotly para painéis interativos.
-- **Modelagem e Projeção:** Bibliotecas como `scikit-learn`, `statsmodels` e `Prophet` para análise de séries temporais e projeções de demanda.
+O projeto está organizado para separar claramente a lógica de processamento de dados da aplicação de visualização.
 
-## 5. Estrutura do Repositório
+📄 app.py: O script principal que executa a aplicação Streamlit.
 
-O projeto está organizado da seguinte forma:
+📦 requirements.txt: A lista de todas as dependências Python necessárias.
 
-- **docs/**: Contém a documentação de apoio do projeto, como a Proposta inicial e a análise do Edital.
-- **data/**: Inclui os scripts para aquisição, limpeza e tratamento dos dados de fontes públicas.
-- **notebooks/**: Armazena os Jupyter Notebooks utilizados para a análise exploratória dos dados e desenvolvimento dos modelos.
-- **src/**: Contém o código-fonte principal da aplicação da plataforma.
-- **LICENSE**: Arquivo com a licença de uso do projeto.
-- **README.md**: Documento de apresentação do repositório (este arquivo).
+📂 data/: Pasta que contém todos os dados.
 
-## 6. Como Executar o Protótipo
+   - raw/: Armazena os arquivos de dados originais, como foram baixados.
 
-Esta seção será detalhada conforme o desenvolvimento do protótipo avança. Incluirá os passos para configuração do ambiente, instalação de dependências e execução da aplicação localmente.
+   - processed/: Armazena os arquivos já limpos e preparados para a análise.
 
-## 7. Licença
+📂 notebooks/: Contém os Jupyter Notebooks usados para exploração e testes.
 
-Este projeto é disponibilizado em conformidade com o item 1.8 do Edital. O conteúdo pode ser utilizado e compartilhado para fins não comerciais, desde que o trabalho seja distribuído inalterado, na íntegra, e com o devido crédito aos autores (Universidade Federal de Uberlândia - UFU).
+📂 src/: Guarda o código-fonte modularizado da aplicação.
 
-## 8. Contato e Responsáveis
+   - data_processing/: Módulos para carregar e limpar os dados.
 
-- Vivian Consuelo Reolon Schmidt - Docente e Orientadora
-- Felipe Goulart Pereira - Discente e Desenvolvedor
+   - analysis/: Módulos para calcular os indicadores.
+
+📄 README.md: Este documento de apresentação.
+
+## 🚀 5. Como Executar o Protótipo
+
+Para executar a aplicação localmente, siga os passos abaixo.
+
+### Pré-requisitos
+- **Python 3.10** ou superior instalado.
+- **Git** instalado.
+
+### Passos para Execução
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    cd seu-repositorio
+    ```
+
+2.  **Crie e ative um ambiente virtual (Recomendado):**
+    ```bash
+    # Comando para criar o ambiente
+    python -m venv .venv
+
+    # No Windows (PowerShell)
+    .\.venv\Scripts\activate
+
+    # No macOS/Linux
+    source .venv/bin/activate
+    ```
+
+3.  **Instale as dependências:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Execute a aplicação Streamlit:**
+    ```bash
+    streamlit run app.py
+    ```
+Após executar o comando, uma nova aba será aberta automaticamente no seu navegador com o protótipo funcional.
+
+---
+
+## 📜 6. Licença
+
+Este projeto é disponibilizado em conformidade com o **item 1.8 do Edital Nº 5/2025**. O conteúdo pode ser utilizado e compartilhado para fins não comerciais, desde que o trabalho seja distribuído inalterado, na íntegra, e com o devido crédito aos autores.
+
+---
+
+## 🧑‍💻 7. Contato e Responsáveis
+
+-   **Vivian Consuelo Reolon Schmidt** - *Docente e Orientadora*
+-   **Felipe Goulart Pereira** - *Discente e Desenvolvedor*
