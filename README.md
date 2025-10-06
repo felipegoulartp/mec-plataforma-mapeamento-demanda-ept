@@ -1,7 +1,7 @@
 # 🗺️ Plataforma de Mapeamento da Demanda por EPTNM
 
 **Proponente:** Universidade Federal de Uberlândia (UFU)  
-**Edital de Referência:** [Edital Nº 5/2025 - MEC/SETEC](https://www.in.gov.br/en/web/dou/-/edital-n-5/2025-568349328)
+**Edital de Referência:** [Edital Nº 5/2025 - MEC/SETEC](https://www.gov.br/mec/pt-br/juros-por-educacao/edital-demanda-por-qualificacao-profissional)
 
 ---
 
@@ -86,7 +86,7 @@ Para executar a aplicação localmente, siga os passos abaixo.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone [https://github.com/felipegoulartp/mec-plataforma-mapeamento-demanda-ept](https://github.com/felipegoulartp/mec-plataforma-mapeamento-demanda-ept)
     cd seu-repositorio
     ```
 
